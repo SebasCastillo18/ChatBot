@@ -15,7 +15,7 @@ def get_db_connection():
 
 # 🔹 Diccionario de intenciones y respuestas
 intenciones = {
-    "saludos": ["hola", "holi", "holaa", "buenas", "qué tal", "que tal", "hi", "hello", "holla",
+    "saludos": ["hola","wuenas", "holi", "holaa", "buenas", "qué tal", "que tal", "hi", "hello", "holla",
                 "buenos dias", "buenas noches", "buenas tardes", "hole", "oe", "oye"],
     "despedidas": ["adios", "adiós", "chao", "nos vemos", "hasta luego", "bye", "hasta nunca", "gracias por todo", "gracias", "te agradezco"],
     "estado": ["como estas", "cómo estás", "que tal", "qué tal", "como vas", "que bueno", "bien", "muy bien"],
