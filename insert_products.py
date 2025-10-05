@@ -29,4 +29,4 @@ conn.commit()
 cur.close()
 conn.close()
 
-print("✅ 10,000 productos insertados correctamente")
+print("10,000 productos insertados correctamente")

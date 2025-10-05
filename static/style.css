@@ -1,124 +1,203 @@
+/* 🌈 Fondo general del sitio */
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #00aaff, #0078ff);
+    font-family: "Segoe UI", Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
+/* 💬 Contenedor del chat */
 .chat-container {
     width: 100%;
-    max-width: 500px;
-    height: 90vh;
-    background: white;
-    border-radius: 10px;
+    max-width: 450px;
+    height: 80vh;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     overflow: hidden;
 }
 
+/* 📥 Zona donde aparecen los mensajes */
 .chat-box {
     flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-}
-
-.input-container {
-    display: flex;
-    border-top: 1px solid #ddd;
-}
-
-input {
-    flex: 1;
     padding: 15px;
-    border: none;
-    outline: none;
-    font-size: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scroll-behavior: smooth;
+    background: #f5f7fa;
 }
 
-button {
-    padding: 0 20px;
-    border: none;
-    background: #007BFF;
+/* 💭 Mensajes del usuario */
+.message.user {
+    align-self: flex-end;
+    background: linear-gradient(135deg, #0078ff, #00b8ff);
     color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-.message {
-    margin-bottom: 15px;
+    border-radius: 20px 20px 0 20px;
     padding: 10px 15px;
-    border-radius: 20px;
     max-width: 80%;
     word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 120, 255, 0.3);
 }
 
-.message.user {
-    background: #DCF8C6;
-    align-self: flex-end;
-}
-
+/* 🤖 Mensajes del asistente */
 .message.assistant {
-    background: #ECECEC;
     align-self: flex-start;
+    background: #e9eef5;
+    color: #333;
+    border-radius: 20px 20px 20px 0;
+    padding: 10px 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Burbujitas de "escribiendo" */
+/* ✨ Indicador de "escribiendo..." */
 .message.typing {
     display: flex;
-    gap: 5px;
-    background: transparent;
-    padding: 10px;
+    align-items: center;
+    gap: 4px;
 }
-
 .message.typing span {
-    width: 10px;
-    height: 10px;
-    background: #ccc;
+    width: 6px;
+    height: 6px;
+    background: #0078ff;
     border-radius: 50%;
-    display: inline-block;
-    animation: bounce 1.2s infinite;
+    animation: bounce 1s infinite alternate;
 }
-
 .message.typing span:nth-child(2) { animation-delay: 0.2s; }
 .message.typing span:nth-child(3) { animation-delay: 0.4s; }
 
 @keyframes bounce {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1); }
+    from { transform: translateY(0); opacity: 0.6; }
+    to { transform: translateY(-5px); opacity: 1; }
 }
 
-/* Tabla de productos */
+/* ⌨️ Barra inferior de entrada */
+.input-container {
+    display: flex;
+    padding: 10px;
+    background: #f0f3f8;
+    border-top: 1px solid #d6dde6;
+}
+
+.input-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 15px;
+    border-radius: 15px;
+    background: #fff;
+    font-size: 15px;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.input-container button {
+    margin-left: 10px;
+    background: linear-gradient(135deg, #0078ff, #00b8ff);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.input-container button:hover {
+    background: linear-gradient(135deg, #0060d9, #00a2e8);
+    transform: scale(1.05);
+}
+
+/* 📊 Tabla (coincide con la que ya tienes en chat.html) */
 .tabla-container {
     overflow-x: auto;
+    margin-top: 10px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    max-width: 100%;
 }
 
 .tabla-productos {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.tabla-productos th, .tabla-productos td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 15px;
 }
 
 .tabla-productos th {
-    background: #007BFF;
+    background: linear-gradient(90deg, #0078ff, #00b8ff);
     color: white;
+    text-align: left;
+    padding: 10px;
+    font-weight: 600;
 }
 
-@media screen and (max-width: 600px) {
-    .message { max-width: 95%; }
-    input { font-size: 14px; }
-    button { font-size: 14px; }
+.tabla-productos td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
 }
+
+.tabla-productos tr:hover {
+    background: #f0f9ff;
+    transition: 0.2s;
+}
+
+.tabla-productos td:last-child {
+    text-align: right;
+    font-weight: 500;
+    color: #0078ff;
+}
+
+/* 🔽 Scrollbar moderna */
+.chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+    background: #0078ff;
+    border-radius: 3px;
+}
+.chat-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+.typing {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.typing span {
+  width: 8px;
+  height: 8px;
+  background-color: #555;
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+

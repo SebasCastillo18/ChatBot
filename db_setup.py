@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS productos (
 )
 """)
 
-print("✅ Base de datos y tabla creada correctamente.")
+print("Base de datos y tabla creada correctamente.")
 
 conn.commit()
 cur.close()
